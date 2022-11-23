@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="itemContext" prefHeight="400.0" prefWidth="731.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.seekerscloud.pos.controller.ItemFormController">
+   <children>
+      <JFXButton layoutX="24.0" layoutY="30.0" onAction="#backToHomeOnAction" style="-fx-background-color: #485460;" text="Back to home" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="587.0" layoutY="30.0" onAction="#addNewItemOnAction" style="-fx-background-color: #2c3e#0be88150;" text="+ New Item" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="147.0" layoutY="30.0" text="Item Management" textFill="#273c75">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Separator layoutX="147.0" layoutY="59.0" prefHeight="3.0" prefWidth="424.0" />
+      <TextField fx:id="txtItemCode" layoutX="24.0" layoutY="81.0" prefHeight="30.0" prefWidth="132.0" promptText="Item Code" />
+      <TextField fx:id="txtDescription" layoutX="166.0" layoutY="81.0" prefHeight="30.0" prefWidth="132.0" promptText="Description" />
+      <TextField fx:id="txtUnitPrice" layoutX="310.0" layoutY="81.0" prefHeight="30.0" prefWidth="221.0" promptText="Unit Price" />
+      <TextField fx:id="txtQtyOnHand" layoutX="542.0" layoutY="81.0" prefHeight="30.0" prefWidth="170.0" promptText="QTY On Hand" />
+      <JFXButton fx:id="btnSaveUpdateItem" layoutX="599.0" layoutY="123.0" onAction="#saveItemOnAction" style="-fx-background-color: #2c3e#0be88150;" text="Save Item" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <TextField fx:id="txtItemSearch" layoutX="23.0" layoutY="123.0" prefHeight="30.0" prefWidth="551.0" promptText="Search Item" />
+      <TableView fx:id="tblItem" layoutX="29.0" layoutY="163.0" prefHeight="200.0" prefWidth="686.0">
+         <columns>
+            <TableColumn fx:id="colItemCode" prefWidth="83.66668701171875" text="Code" />
+            <TableColumn fx:id="colDescription" prefWidth="130.66665649414062" text="Description" />
+            <TableColumn fx:id="colUnitPrice" prefWidth="173.33334350585938" text="Unit Price" />
+            <TableColumn fx:id="colQtyOnHand" prefWidth="156.33331298828125" text="QTY On Hand" />
+            <TableColumn fx:id="colOption" prefWidth="143.66668701171875" text="Option" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>
