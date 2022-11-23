@@ -127,8 +127,7 @@ public class PlaceOrderFormController {
         setUI("DashboardForm","Dashboard");
     }
 
-    public void saveItemOnAction(ActionEvent actionEvent) {
-    }
+
 
     private void setUI(String location, String title) throws IOException {
         Stage stage = (Stage) placeOrderContext.getScene().getWindow();
@@ -165,8 +164,24 @@ public class PlaceOrderFormController {
         setOrderId();
     }
 
+    private boolean checkQty(String code, int qty){
+        for(Item i: Database.itemTable){
+            if(code.equals(i.getCode())){
+                if(i.getQtyOnHand() >= qty){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+        }
+        return false;
+    }
     ObservableList<CartTM> obList = FXCollections.observableArrayList();
     public void addToCartOnAction(ActionEvent actionEvent) {
+        if(!checkQty(cmbItemCode.getValue(),Integer.parseInt(txtQty.getText()))){
+            new Alert(Alert.AlertType.WARNING, "Invalid Qty").show();
+            return;
+        }
         double unitPrice = Double.parseDouble(txtUnitPrice.getText());
         int qty =Integer.parseInt(txtQty.getText());
         double total = unitPrice*qty;
@@ -179,6 +194,10 @@ public class PlaceOrderFormController {
         }else{
             int tempQty = obList.get(row).getQty()+qty;
             double tempTotal = unitPrice*tempQty;
+            if(!checkQty(cmbItemCode.getValue(),tempQty)){
+                new Alert(Alert.AlertType.WARNING, "Invalid Qty").show();
+                return;
+            }
             obList.get(row).setQty(tempQty);
             obList.get(row).setTotal(tempTotal);
             tblCart.refresh();

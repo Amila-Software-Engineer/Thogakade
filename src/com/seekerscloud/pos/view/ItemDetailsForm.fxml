@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="itemDetailsContext" prefHeight="460.0" prefWidth="763.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.seekerscloud.pos.controller.ItemDetailsFormController">
+   <children>
+      <JFXButton layoutX="32.0" layoutY="26.0" onAction="#backToHomeOnAction" style="-fx-background-color: #485460;" text="Back to home" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="155.0" layoutY="26.0" text="Item Details" textFill="#273c75">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Separator layoutX="155.0" layoutY="55.0" prefHeight="0.0" prefWidth="567.0" />
+      <TableView fx:id="tblItemDetails" layoutX="32.0" layoutY="77.0" prefHeight="353.0" prefWidth="694.0">
+         <columns>
+            <TableColumn fx:id="colItemCode" prefWidth="150.66665649414062" text="Item Code" />
+            <TableColumn fx:id="colUnitPrice" prefWidth="161.33334350585938" text="Unit Price" />
+            <TableColumn fx:id="colQty" prefWidth="170.3333740234375" text="QTY" />
+            <TableColumn fx:id="colTotal" prefWidth="211.0" text="Total" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>
